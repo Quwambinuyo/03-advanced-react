@@ -1,4 +1,4 @@
-import useFetchPerson from "./useFetchPerson";
+import useFetch from "./useFetch";
 
 const url = "https://api.github.com/users/QuincyLarson";
 
@@ -17,7 +17,7 @@ const url = "https://api.github.com/users/QuincyLarson";
  * @returns {JSX.Element} A UI displaying the fetched user data.
  */
 const FetchData = () => {
-  const { isLoading, isError, user } = useFetchPerson(url);
+  const { isLoading, isError, data } = useFetch(url);
 
   // Show loading message while fetching data
   if (isLoading) {
@@ -30,12 +30,12 @@ const FetchData = () => {
   }
 
   // Handle case where user data is empty
-  if (!user || Object.keys(user).length === 0) {
+  if (!data || Object.keys(data).length === 0) {
     return <h2>No user data available</h2>;
   }
 
   // Destructure safely after ensuring user data is available
-  const { avatar_url, name, company, bio } = user;
+  const { avatar_url, name, company, bio } = data;
 
   return (
     <div>

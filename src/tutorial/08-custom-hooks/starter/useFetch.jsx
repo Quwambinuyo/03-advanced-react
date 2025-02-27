@@ -18,16 +18,16 @@ import { useState, useEffect } from "react";
  * - `useEffect` ensures that data is fetched whenever the `url` changes.
  *
  * @param {string} url - The API endpoint to fetch user data from.
- * @returns {object} An object containing `isLoading`, `isError`, and `user`.
+ * @returns {object} An object containing `isLoading`, `isError`, and `data`.
  */
 
-const useFetchPerson = (url) => {
+const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState({}); // Ensure user has an initial empty object
+  const [data, setData] = useState({}); // Ensure user has an initial empty object
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchData = async () => {
       setIsLoading(true);
       setIsError(false);
       try {
@@ -35,18 +35,18 @@ const useFetchPerson = (url) => {
         if (!response.ok) {
           throw new Error("Failed to fetch user");
         }
-        const data = await response.json();
-        setUser(data);
+        const userResponse = await response.json();
+        setData(userResponse);
       } catch (error) {
         setIsError(true);
       }
       setIsLoading(false);
     };
 
-    fetchUser();
+    fetchData();
   }, [url]);
 
-  return { isLoading, isError, user };
+  return { isLoading, isError, data };
 };
 
-export default useFetchPerson;
+export default useFetch;
