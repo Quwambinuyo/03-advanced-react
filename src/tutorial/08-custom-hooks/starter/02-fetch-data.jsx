@@ -5,7 +5,7 @@ const url = "https://api.github.com/users/QuincyLarson";
 /**
  * FetchData Component
  *
- * This component fetches and displays user data from GitHub using the `useFetchPerson` custom hook.
+ * This component fetches and displays user data from GitHub using the `useFetch` custom hook.
  * It handles different states: loading, error, and successful data retrieval.
  *
  * Features:
