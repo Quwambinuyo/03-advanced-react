@@ -1,7 +1,11 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 import NavLinks from "./Navlinks";
 
 export const NavbarContext = createContext();
+
+// Custom hook
+
+export const useAppContext = () => useContext(NavbarContext);
 
 // Navbar Component
 const Navbar = () => {
