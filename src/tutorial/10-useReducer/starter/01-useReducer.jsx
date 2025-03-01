@@ -1,38 +1,13 @@
 import React from "react";
 import { useState, useReducer } from "react";
 import { data } from "../../../data";
-
-// Action types for the reducer
-const CLEAR_LIST = "CLEAR_LIST";
-const RESET_LIST = "RESET_LIST";
-const REMOVE_PERSON = "REMOVE_PERSON"; // Fixed typo: was "RESET_PERSON"
+import { CLEAR_LIST, RESET_LIST, REMOVE_PERSON } from "./ACtion";
+import reducer from "./Reducer";
 
 // Initial state for the reducer
 const defaultState = {
   people: data, // Initial list of people
   isLoading: false, // Example state property (not used in this code)
-};
-
-// Reducer function to handle state updates based on dispatched actions
-const reducer = (state, action) => {
-  if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] }; // Clears the people array
-  }
-
-  if (action.type === RESET_LIST) {
-    return { ...state, people: data }; // Resets the list to original data
-  }
-
-  if (action.type === REMOVE_PERSON) {
-    let newPeople = state.people.filter(
-      (person) => person.id !== action.payload.id
-    );
-
-    return { ...state, people: newPeople }; // Removes a person from the list
-  }
-
-  // Return an error if an unknown action type is dispatched
-  return new Error(`No matching "${action.type}" - action type`);
 };
 
 const ReducerBasics = () => {
