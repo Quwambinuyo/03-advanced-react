@@ -29,8 +29,6 @@ const ReducerBasics = () => {
     dispatch({ type: RESET_LIST });
   };
 
-  console.log(state); // Debugging: Logs state to the console
-
   return (
     <div>
       {/* Render the list of people */}
