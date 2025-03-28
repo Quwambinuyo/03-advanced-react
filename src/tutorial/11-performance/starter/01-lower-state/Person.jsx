@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-const Person = ({ name }) => {
-  console.log('render');
-  // useEffect(() => {
-  //   console.log('unfortunately does not fix the issue');
-  // }, []);
+const Person = ({ id, name, removePerson }) => {
+  console.log("render");
+
   return (
     <div>
       <h4>{name}</h4>
+      <button onClick={() => removePerson(id)}>Remove</button>
     </div>
   );
 };
+
 export default Person;
