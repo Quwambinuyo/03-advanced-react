@@ -7,10 +7,15 @@ const UseStateArray = () => {
   const removeItem = (id) => {
     const newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
+    console.log(id);
   };
 
   const clearAllItems = () => {
-    setPeople([]);
+    if (people.length === 0) {
+      setPeople(data);
+    } else {
+      setPeople([]);
+    }
   };
 
   return (
@@ -40,7 +45,8 @@ const UseStateArray = () => {
         className="btn"
         onClick={clearAllItems}
       >
-        clear all
+        {" "}
+        {people.length === 0 ? "Reset" : "Clear all"}
       </button>
     </>
   );

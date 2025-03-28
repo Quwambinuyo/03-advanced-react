@@ -2,24 +2,20 @@ import { useState } from "react";
 
 const UseStateObject = () => {
   const [person, setPerson] = useState({
-    name: "Peter",
+    name: "john",
     age: 22,
-    hobby: "Skiing",
+    hobby: "skiing",
   });
 
-  // const [name, setName] = useState("Peter");
-  // const [age, setAge] = useState(22);
-  // const [hobby, setHobby] = useState("Skiing");
-
   const displayProfile = () => {
-    setPerson({ name: "John", age: 23, hobby: "Surfing" });
-
-    // setName("John");
-    // setAge(23);
-    // setHobby("Surfing");
+    setPerson((prevState) =>
+      prevState.name === "john"
+        ? { name: "peter", age: 23, hobby: "diving" }
+        : { name: "john", age: 22, hobby: "skiing" }
+    );
   };
 
-  const { name, age, hobby } = person;
+  const { age, name, hobby } = person;
 
   return (
     <>
@@ -30,7 +26,7 @@ const UseStateObject = () => {
         <h2>{age}</h2>
         <h2>Enjoys: {hobby}</h2>
         <button onClick={displayProfile} className="btn">
-          Show john
+          {name === "john" ? "Show Peter" : "Show John"}
         </button>
       </div>
     </>
