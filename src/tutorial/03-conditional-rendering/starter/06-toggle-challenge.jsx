@@ -12,6 +12,10 @@ const ToggleChallenge = () => {
     setShowAlert(true);
   };
 
+  const Alert = () => {
+    return <div className="alert alert-danger">hello world</div>;
+  };
+
   return (
     <>
       <h2>toggle challenge</h2>
@@ -24,10 +28,6 @@ const ToggleChallenge = () => {
       </div>
     </>
   );
-};
-
-const Alert = () => {
-  return <div className="alert alert-danger">hello world</div>;
 };
 
 export default ToggleChallenge;

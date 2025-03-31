@@ -1,9 +1,5 @@
 import { useState } from "react";
 
-const SomeComponent = ({ name }) => {
-  return <h2>Hello, {name}!</h2>;
-};
-
 const ShortCircuitExamples = () => {
   // Falsy value
   const [text, setText] = useState("");
@@ -11,6 +7,10 @@ const ShortCircuitExamples = () => {
   const [name, setName] = useState("susan");
   const [user, setUser] = useState({ name: "john" });
   const [isEditing, setIsEditing] = useState(true);
+
+  const SomeComponent = ({ name }) => {
+    return <h2>Hello, {name}!</h2>;
+  };
 
   return (
     <>
