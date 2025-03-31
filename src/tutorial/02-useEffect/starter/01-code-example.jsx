@@ -5,7 +5,6 @@ const CodeExample = () => {
 
   const sayHello = () => {
     console.log("Hello World");
-
     // will have an infinite loop
     // setValue(value + 1)
   };

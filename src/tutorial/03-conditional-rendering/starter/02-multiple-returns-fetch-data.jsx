@@ -52,7 +52,10 @@ const MultipleReturnsFetchData = () => {
     return <h2>There was an error..</h2>;
   }
 
+  // const { avatar_url, name, company, bio } = user;
   const { avatar_url, name, company, bio } = user;
+
+  console.log(user);
 
   // Render user data once fetched successfully
   return (

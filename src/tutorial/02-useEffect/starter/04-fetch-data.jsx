@@ -16,6 +16,7 @@ const FetchData = () => {
       }
     };
 
+    // invoking the function
     fetchData();
   }, []);
 
